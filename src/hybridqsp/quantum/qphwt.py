@@ -109,6 +109,7 @@ def inverse_qhw(circuit, n, offset=0):
     circuit.add(gates.H(offset))
 
 
+
 def build_inverse_qphwt_circuit(n, level):
     """
     Construct the inverse Quantum Packet
