@@ -48,9 +48,10 @@ def search_sparse_haar_representations(
 
     # Maximum allowed decomposition level
     max_level = int(np.log2(N))
+    min_level = max(1, max_level // 2)
 
-    levels = list(range(1, max_level + 1))
-
+    levels = list(range(min_level, max_level + 1))
+    
     if threshold_ratios is None:
 
         threshold_ratios = [
