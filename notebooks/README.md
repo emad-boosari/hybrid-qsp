@@ -33,7 +33,7 @@ $$ \mathbf{X}^r = \frac{\mathbf{X}^{(\tau)}}{\|\mathbf{X}^{(\tau)}\|_2}. $$
 
 4. Prepare the compressed quantum state
 
-   $$ |\phi\rangle   =  \sum_{k=0}^{N-1}  X_k^r |k\rangle. $$
+   $$ |\phi\rangle = \sum_{k=0}^{N-1} X_k^r |k\rangle. $$
    
 
 5. Apply the inverse quantum transformation 
