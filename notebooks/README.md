@@ -21,24 +21,24 @@ The workflow of the Hybrid-QSP framework is:
 
 1. Apply a reversible classical transformation 
 
-$$ \mathbf{X} = \mathcal{U}_C \mathbf{x}. $$
+$$ __X__ = \mathcal{U}_C __x__. $$
 
 2. If the transformed vector is not sufficiently sparse:
    - retain dominant coefficients,
    - apply thresholding or Top-k sparsification.
 
-3. Normalize the sparse coefficient vector 
+3. Normalize the sparse coefficient vector $$
 
-$$ \mathbf{X}^r = \frac{\mathbf{X}^{(\tau)}}{\|\mathbf{X}^{(\tau)}\|_2}. $$
+$$ __X__^r = \frac{__X__^{(\tau)}}{\|__X__^{(\tau)}\|_2}. $$
 
-4. Prepare the compressed quantum state
+4. Prepare the compressed quantum state $|\phi \rangle$
 
-   $$ |\phi\rangle = \sum_{k=0}^{N-1} X_k^r |k\rangle. $$
+   $$ |\phi \rangle = \sum_{k=0}^{N-1} X_k^r |k \rangle. $$
    
 
-5. Apply the inverse quantum transformation 
+5. Apply the inverse quantum transformation $|\Phi$
 
-   $$ |\Phi\rangle = \mathcal{U}_Q^{-1} |\phi\rangle. $$
+   $$ |\Phi \rangle = \mathcal{U}_Q^{-1} |\phi \rangle. $$
    
 
 6. Compare the reconstructed quantum state with the normalized original signal using fidelity and trace-distance metrics.
