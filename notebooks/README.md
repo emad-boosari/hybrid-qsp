@@ -19,7 +19,7 @@ $$ |\Phi\rangle \approx \sum_{k=0}^{N-1} x_k |k\rangle. $$
 
 The workflow of the Hybrid-QSP framework is:
 
-1. Apply a reversible classical transformation 
+1. Apply a reversible classical transformation $\mathcal{U}_C$
 
 $$ __X__ = \mathcal{U}_C __x__. $$
 
@@ -27,7 +27,7 @@ $$ __X__ = \mathcal{U}_C __x__. $$
    - retain dominant coefficients,
    - apply thresholding or Top-k sparsification.
 
-3. Normalize the sparse coefficient vector $$
+3. Normalize the sparse coefficient vector $__X^r__$
 
 $$ __X__^r = \frac{__X__^{(\tau)}}{\|__X__^{(\tau)}\|_2}. $$
 
