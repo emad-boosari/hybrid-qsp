@@ -8,16 +8,14 @@ The main objective is to reduce the complexity of quantum state preparation by e
 
 ## Hybrid Quantum State Preparation Algorithm
 
-## Hybrid Quantum State Preparation Algorithm
-
 Given a classical vector
 
-\[
+$$
 \mathbf{x}
 =
 [x_0, x_1, \dots, x_{N-1}]^T
 \in \mathbb{R}^N,
-\]
+$$
 
 the goal is to approximately prepare the quantum state
 
@@ -30,19 +28,47 @@ x_k |k\rangle.
 
 The workflow of the Hybrid-QSP framework is:
 
-1. Apply a reversible classical transformation to the input signal.
+1. Apply a reversible classical transformation
+   \[
+   \mathbf{X}
+   =
+   \mathcal{U}_C \mathbf{x}.
+   \]
 
-2. Check whether the transformed coefficients are sufficiently sparse.
+2. If the transformed vector is not sufficiently sparse:
+   - retain dominant coefficients,
+   - apply thresholding or Top-k sparsification.
 
-3. If necessary, apply thresholding or Top-k sparsification to retain only the dominant coefficients.
+3. Normalize the sparse coefficient vector
+   \[
+   \mathbf{X}^r
+   =
+   \frac{
+   \mathbf{X}^{(\tau)}
+   }{
+   \|
+   \mathbf{X}^{(\tau)}
+   \|_2
+   }.
+   \]
 
-4. Normalize the remaining transform-domain coefficients.
+4. Prepare the compressed quantum state
+   \[
+   |\phi\rangle
+   =
+   \sum_{k=0}^{N-1}
+   X_k^r |k\rangle.
+   \]
 
-5. Prepare the normalized sparse vector as a quantum state.
+5. Apply the inverse quantum transformation
+   \[
+   |\Phi\rangle
+   =
+   \mathcal{U}_Q^{-1}
+   |\phi\rangle.
+   \]
 
-6. Apply the inverse quantum transformation to reconstruct the signal.
-
-7. Compare the reconstructed state with the normalized original signal using fidelity and trace-distance metrics.
+6. Compare the reconstructed quantum state with the normalized original signal using fidelity and trace-distance metrics.
 
 In the absence of thresholding, the reconstruction becomes exact.
 
