@@ -28,13 +28,37 @@ hybrid-qsp/
 ├── src/
 │   └── hybridqsp/
 │       ├── transforms/
+│       │   ├── __init__.py
+│       │   ├── fourier.py
+│       │   └── haar.py
+│       │
 │       ├── thresholding/
+│       │   ├── __init__.py
+│       │   └── threshold.py
+│       │
 │       ├── metrics/
-│       └── quantum/
+│       │   ├── __init__.py
+│       │   └── distance.py
+│       │
+│       ├── quantum/
+│       │   ├── __init__.py
+│       │   └── qphwt.py
+│       │
+│       ├── analysis/
+│       │   ├── __init__.py
+│       │   └── haar_sparsity_search.py
+│       │
+│       └── __init__.py
 │
 ├── notebooks/
 │
 ├── figures/
+│
+├── datasets/
+│
+├── LICENSE
+│
+├── requirements.txt
 │
 └── README.md
 ```
