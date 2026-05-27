@@ -10,8 +10,8 @@ The main objective is to reduce the complexity of quantum state preparation by e
 
 Given a classical vector
 
-\[ __x__= [x_0, x_1, \dots, x_{N-1}]^T \in \mathbb{R}^N,
-\]
+$$ __x__= [x_0, x_1, \dots, x_{N-1}]^T \in \mathbb{R}^N, $$
+
 
 the goal is to approximately prepare the quantum state
 
