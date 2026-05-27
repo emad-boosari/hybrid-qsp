@@ -3,8 +3,11 @@ from qibo import Circuit, gates
 
 def qhw(circuit, n, offset=0):
     """
-    Apply a quantum Haar-wavelet block
-    on n qubits starting from `offset`.
+    Apply a Qibo-compatible quantum Haar-wavelet block.
+
+    Due to Qibo's little-endian (LSB) qubit ordering,
+    the transform direction is reversed compared to
+    the original Qiskit implementation.
 
     Parameters
     ----------
@@ -23,9 +26,9 @@ def qhw(circuit, n, offset=0):
             "Number of qubits must be positive."
         )
 
-    circuit.add(gates.H(offset))
+    # Reverse SWAP chain
+    for i in reversed(range(n - 1)):
 
-    for i in range(n - 1):
         circuit.add(
             gates.SWAP(
                 offset + i,
@@ -33,11 +36,16 @@ def qhw(circuit, n, offset=0):
             )
         )
 
+    # Hadamard on highest-index active qubit
+    circuit.add(
+        gates.H(offset + n - 1)
+    )
+
 
 def build_qphwt_circuit(n, level):
     """
-    Construct a Quantum Packet Haar Wavelet
-    Transform (QPHWT) circuit.
+    Construct a Qibo-compatible Quantum Packet
+    Haar Wavelet Transform (QPHWT) circuit.
 
     Parameters
     ----------
@@ -75,8 +83,8 @@ def build_qphwt_circuit(n, level):
 
 def inverse_qhw(circuit, n, offset=0):
     """
-    Apply the inverse quantum Haar-wavelet
-    block on n qubits starting from `offset`.
+    Apply the inverse Qibo-compatible quantum
+    Haar-wavelet block.
 
     Parameters
     ----------
@@ -95,8 +103,13 @@ def inverse_qhw(circuit, n, offset=0):
             "Number of qubits must be positive."
         )
 
-    # Reverse SWAP order
-    for i in reversed(range(n - 1)):
+    # Hadamard inverse
+    circuit.add(
+        gates.H(offset + n - 1)
+    )
+
+    # Reverse SWAP chain inverse
+    for i in range(n - 1):
 
         circuit.add(
             gates.SWAP(
@@ -105,15 +118,12 @@ def inverse_qhw(circuit, n, offset=0):
             )
         )
 
-    # Hadamard inverse
-    circuit.add(gates.H(offset))
-
-
 
 def build_inverse_qphwt_circuit(n, level):
     """
-    Construct the inverse Quantum Packet
-    Haar Wavelet Transform (QPHWT) circuit.
+    Construct the inverse Qibo-compatible
+    Quantum Packet Haar Wavelet Transform
+    (QPHWT) circuit.
 
     Parameters
     ----------
@@ -136,7 +146,7 @@ def build_inverse_qphwt_circuit(n, level):
 
     circuit = Circuit(n)
 
-    # Reverse decomposition order
+    # Reverse decomposition hierarchy
     for current_level in reversed(range(level)):
 
         active_qubits = n - current_level
