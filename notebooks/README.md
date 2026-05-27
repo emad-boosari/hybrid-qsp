@@ -15,25 +15,29 @@ $$ \vec{x}= [x_0, x_1, \dots, x_{N-1}]^T \in \mathbb{R}^N, $$
 
 the goal is to approximately prepare the quantum state
 
-$$ |\Phi\rangle \approx \sum_{k=0}^{N-1} x_k |k\rangle$$.
+$$ |\Phi\rangle \approx \sum_{k=0}^{N-1} x_k |k\rangle $$.
 
 The workflow of the Hybrid-QSP framework is:
 
 1. Apply a reversible classical transformation 
-$$  \mathbf{X} = \mathcal{U}_C \mathbf{x}$$. 
+
+$$ \mathbf{X} = \mathcal{U}_C \mathbf{x} $$. 
 
 2. If the transformed vector is not sufficiently sparse:
    - retain dominant coefficients,
    - apply thresholding or Top-k sparsification.
 
 3. Normalize the sparse coefficient vector 
-$$\mathbf{X}^r = \frac{\mathbf{X}^{(\tau)}}{\|\mathbf{X}^{(\tau)}\|_2}$$.
+
+$$ \mathbf{X}^r = \frac{\mathbf{X}^{(\tau)}}{\|\mathbf{X}^{(\tau)}\|_2} $$.
 
 4. Prepare the compressed quantum state
-   $$ |\phi\rangle   =  \sum_{k=0}^{N-1}  X_k^r |k\rangle$$.
+
+   $$ |\phi\rangle   =  \sum_{k=0}^{N-1}  X_k^r |k\rangle $$.
    
 
-5. Apply the inverse quantum transformation
+5. Apply the inverse quantum transformation 
+
    $$ |\Phi\rangle = \mathcal{U}_Q^{-1} |\phi\rangle $$.
    
 
