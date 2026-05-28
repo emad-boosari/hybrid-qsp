@@ -46,11 +46,9 @@ hybrid-qsp/
 
 ## Hybrid-QSP Workflow
 
-A detailed description of the Hybrid Quantum State Preparation (Hybrid-QSP) workflow and the associated numerical demonstrations is provided in:
+A detailed description of the Hybrid Quantum State Preparation (Hybrid-QSP) workflow and the associated numerical demonstrations is provided in the [notebooks documentation](notebooks/README.md).
 
-```text
-notebooks/README.md
-```
+
 
 ---
 
@@ -76,7 +74,7 @@ If you use this repository in academic work, please cite:
 ```bibtex
 @misc{hybridqsp2025,
   title={Hybrid Quantum State Preparation via Classical Compression and Quantum Decompression},
-  author={},
+  author={E. Rezaei Fard Boosari, M. Afsary},
   year={2025},
   archivePrefix={arXiv},
   eprint={2512.01798},
