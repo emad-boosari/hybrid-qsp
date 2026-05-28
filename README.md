@@ -1,22 +1,20 @@
-# Hybrid Quantum State Preparation via Classical Compression
+# Hybrid Quantum State Preparation via Classical Compression and Quantum Decompression
 
-A modular research framework for hybrid quantum state preparation using classical transform-domain compression techniques such as Fourier and Haar wavelet sparsification.
+A modular research framework for hybrid quantum state preparation using classical transform-domain compression techniques such as Fourier and Haar packet wavelet sparsification.
 
 ---
 
 ## Overview
 
-Quantum state preparation is one of the central bottlenecks in many quantum algorithms.  
-This project explores hybrid quantum-classical strategies in which classical compression methods are applied prior to quantum encoding in order to reduce quantum resource requirements while preserving reconstruction fidelity.
+Quantum state preparation is one of the central bottlenecks in many quantum algorithms. This repository explores hybrid quantum-classical strategies in which classical compression methods are applied prior to quantum encoding in order to reduce quantum resource requirements while preserving reconstruction fidelity.
 
-The framework currently includes:
+The framework combines:
+- classical transform-domain compression,
+- sparse quantum state preparation,
+- inverse quantum transformations,
+- and reconstruction-fidelity analysis.
 
-- Classical Fourier and Haar-based transforms
-- Sparse coefficient thresholding methods
-- Fidelity and trace-distance evaluation metrics
-- Quantum Packet Haar Wavelet Transform (QPHWT) circuits
-- Qibo-based quantum circuit implementations
-- Reproducible notebook demonstrations
+The current implementation includes Fourier-based and Haar-based hybrid quantum reconstruction workflows using Qibo quantum circuits.
 
 ---
 
@@ -28,113 +26,65 @@ hybrid-qsp/
 ├── src/
 │   └── hybridqsp/
 │       ├── transforms/
-│       │   ├── __init__.py
-│       │   ├── fourier.py
-│       │   └── haar.py
-│       │
 │       ├── thresholding/
-│       │   ├── __init__.py
-│       │   └── threshold.py
-│       │
 │       ├── metrics/
-│       │   ├── __init__.py
-│       │   └── distance.py
-│       │
 │       ├── quantum/
-│       │   ├── __init__.py
-│       │   └── qphwt.py
-│       │
-│       ├── analysis/
-│       │   ├── __init__.py
-│       │   └── haar_sparsity_search.py
-│       │
-│       └── __init__.py
+│       └── analysis/
 │
 ├── notebooks/
 │
 ├── figures/
 │
-├── datasets/
+├── ppg_dataset/
 │
 ├── LICENSE
-│
 ├── requirements.txt
-│
 └── README.md
 ```
 
 ---
 
-## Current Features
+## Hybrid-QSP Workflow
 
-### Classical Transforms
+A detailed description of the Hybrid Quantum State Preparation (Hybrid-QSP) workflow and the associated numerical demonstrations is provided in:
 
-- Unitary Discrete Fourier Transform (DFT)
-- Inverse DFT
-- Haar transform
-- Inverse Haar transform
-- Haar packet wavelet transform
-
-### Thresholding Methods
-
-- Top-k coefficient thresholding
-- Magnitude-based thresholding
-
-### Metrics
-
-- State fidelity
-- Trace distance
-
-### Quantum Components
-
-- Quantum Packet Haar Wavelet Transform (QPHWT)
-- Qibo-based circuit implementations
-
----
-
-## Example Workflow
-
-```python
-from hybridqsp.transforms import dft, idft
-from hybridqsp.thresholding import top_k_threshold
-from hybridqsp.metrics import (
-    state_fidelity,
-    trace_distance
-)
-
-X = dft(signal)
-
-X_sparse = top_k_threshold(X, k=8)
-
-signal_rec = idft(X_sparse)
-
-F = state_fidelity(signal, signal_rec)
-D = trace_distance(signal, signal_rec)
+```text
+notebooks/README.md
 ```
 
 ---
 
-## Notebook Demonstrations
+## Included Demonstrations
 
-The `notebooks/` directory contains reproducible examples demonstrating:
+The repository currently includes examples for:
 
-- Fourier-domain sparsification
-- Haar-wavelet compression
-- Signal reconstruction
-- Sparse quantum representations
-- Biomedical signal examples
+- Multi-frequency signals
+- Piecewise-constant signals
+- Sinc signals
+- Single-Gaussian signals
+- Multi-Gaussian signals
+- PPG biomedical signals
 
----
-
-## Current Status
-
-This repository is under active development alongside the associated research manuscript.
+These examples demonstrate transform-domain sparsification, sparse quantum state preparation, and inverse quantum reconstruction workflows.
 
 ---
 
-## License
+## Citation
 
-This project is released under the MIT License.
+If you use this repository in academic work, please cite:
+
+```bibtex
+@misc{hybridqsp2025,
+  title={Hybrid Quantum State Preparation via Classical Compression and Quantum Decompression},
+  author={},
+  year={2025},
+  archivePrefix={arXiv},
+  eprint={2512.01798},
+  primaryClass={quant-ph}
+}
+```
+
+---
 
 ## Associated Paper
 
@@ -142,3 +92,9 @@ This repository accompanies the following research manuscript:
 
 **Hybrid Quantum State Preparation via Classical Compression and Quantum Decompression**  
 https://arxiv.org/abs/2512.01798
+
+---
+
+## License
+
+This project is released under the MIT License.
