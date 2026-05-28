@@ -11,16 +11,16 @@ The experiments in this repository investigate how transform-domain sparsity can
 The PPG signals used in this work are obtained from the publicly available:
 
 **BIDMC PPG and Respiration Dataset**  
-available through :contentReference[oaicite:0]{index=0}.
+available through [PhysioNet](https://physionet.org/content/bidmc/1.0.0/).
 
 This dataset contains physiological recordings extracted from the MIMIC-II matched waveform database and includes:
 - photoplethysmogram (PPG) signals,
 - electrocardiogram (ECG) signals,
 - impedance respiratory signals,
 - respiratory annotations,
-- and physiological parameters such as heart rate and oxygen saturation. :contentReference[oaicite:1]{index=1}
+- and physiological parameters such as heart rate and oxygen saturation.
 
-The recordings were acquired from critically ill patients at the Beth Israel Deaconess Medical Center (Boston, MA, USA). Each recording has a duration of approximately 8 minutes and physiological waveforms are sampled at 125 Hz. :contentReference[oaicite:2]{index=2}
+The recordings were acquired from critically ill patients at the Beth Israel Deaconess Medical Center (Boston, MA, USA). Each recording has a duration of approximately 8 minutes and physiological waveforms are sampled at 125 Hz.
 
 ---
 
@@ -39,11 +39,11 @@ The processing pipeline is:
 ```text
 PPG signal
     ↓
-Normalization
-    ↓
 Haar packet transform
     ↓
 Thresholding / sparsification
+    ↓
+Normalization
     ↓
 Sparse quantum state preparation
     ↓
@@ -70,7 +70,7 @@ ppg_dataset/
 The dataset is available in:
 - WFDB format,
 - CSV format,
-- and MATLAB format. :contentReference[oaicite:3]{index=3}
+- and MATLAB format.
 
 For this repository, CSV or MATLAB formats are recommended for easier preprocessing in Python.
 
@@ -97,5 +97,4 @@ Goldberger, A. L., Amaral, L. A. N., Glass, L., et al.
 *PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals.*  
 Circulation, 101(23), e215–e220, 2000.
 
-PhysioNet:  
-:contentReference[oaicite:4]{index=4}
+[PhysioNet](https://physionet.org/content/bidmc/1.0.0/)
