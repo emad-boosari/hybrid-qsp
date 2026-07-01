@@ -36,14 +36,3 @@ The workflow of the Hybrid-QSP framework is:
 In the absence of thresholding, the reconstruction becomes exact.
 
 ---
-
-## Available Examples
-
-| Example | Description |
-|---|---|
-| Multi-frequency signal | Exact sparse representation in the Fourier domain |
-| Piecewise-constant signal | Exact sparse representation using Haar packet decomposition |
-| Sinc signal | Approximate sparse reconstruction using Top-k thresholding |
-| Single-Gaussian signal | Sparse approximation of smooth localized signals |
-| Multi-Gaussian signal | Sparse representation of multi-peak structures |
-| PPG signal | Hybrid quantum reconstruction of biomedical physiological signals |
